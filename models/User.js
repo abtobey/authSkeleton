@@ -10,6 +10,14 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  location: {
+    type: String,
+    required: false
+  },
+  description: {
+    type: String,
+    required: false
+  },
   password: {
     type: String,
     required: true

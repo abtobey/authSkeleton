@@ -10,6 +10,8 @@ class Register extends Component {
     this.state = {
       name: "",
       email: "",
+      location: "",
+      description: "",
       password: "",
       password2: "",
       errors: {}
@@ -36,6 +38,8 @@ onSubmit = e => {
 const newUser = {
       name: this.state.name,
       email: this.state.email,
+      location: this.state.location,
+      description: this.state.description,
       password: this.state.password,
       password2: this.state.password2
     };
@@ -71,7 +75,7 @@ return (
                     invalid: errors.name
                   })}
                 />
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Username</label>
                 <span className="red-text">{errors.name}</span>
               </div>
               <div className="input-field col s12">
@@ -87,6 +91,36 @@ return (
                 />
                 <label htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
+              </div>
+
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.location}
+                  error={errors.location}
+                  id="location"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.location
+                  })}
+                />
+                <label htmlFor="location">Location (optional)</label>
+                <span className="red-text">{errors.location}</span>
+              </div>
+
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.description}
+                  error={errors.description}
+                  id="description"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.description
+                  })}
+                />
+                <label htmlFor="description">Description of your group (e.g. Tuesday night drafts)</label>
+                <span className="red-text">{errors.description}</span>
               </div>
               <div className="input-field col s12">
                 <input
